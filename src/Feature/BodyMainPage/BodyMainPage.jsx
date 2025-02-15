@@ -15,6 +15,7 @@ import Image12 from "./Car11.png";
 
 function BodyMainPage() {
   const [cars, setCars] = useState([]);
+  const [hearths, setHearths] = useState(false);
 
   const images = {
     Image1,
@@ -41,6 +42,13 @@ function BodyMainPage() {
     getCars();
   }, []);
 
+  function handelishearth(Cartid) {
+    setHearths((prevState) => ({
+      ...prevState,
+      [Cartid]: !prevState[Cartid],
+    }));
+  }
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
       {cars.map((car, index) => (
@@ -51,7 +59,12 @@ function BodyMainPage() {
           <div className="relative flex-1 p-4">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-xl font-bold text-gray-800">{car.brand}</h3>
-              <FaHeart className="text-2xl cursor-pointer text-gray-300 hover:text-red-500 transition-colors duration-300" />
+              <FaHeart
+                onClick={() => handelishearth(car.id)}
+                className={`text-2xl cursor-pointer ${
+                  hearths[car.id] ? "text-red-500" : "text-gray-300"
+                } hover:text-red-500 transition-colors duration-300`}
+              />
             </div>
             <img
               src={images[`Image${(index % 12) + 1}`]}

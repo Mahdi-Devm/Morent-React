@@ -58,11 +58,11 @@ function HeaderMainPage() {
             </div>
           </div>
         </div>
-        <div className="w-12 h-12  bg-[#3563E9] rounded-full flex justify-center items-center shadow-sm text-white text-lg mx-15 hover:bg-[#3559e9] hover:transition-colors duration-300 hover:cursor-pointer fixed bottom-3 right-1  ">
+        <div className="w-12 h-12  bg-[#3563E9] rounded-full flex justify-center items-center shadow-sm text-white text-lg mx-15 hover:bg-[#3559e9] hover:transition-colors duration-300 hover:cursor-pointer fixed bottom-3 right-1  z-10">
           <FaChevronDown />
         </div>
 
-        <div className="w-12 h-12 bg-[#3563E9] rounded-full flex justify-center items-center shadow-sm text-white text-lg mx-15 hover:bg-[#3559e9] hover:transition-colors duration-300 hover:cursor-pointer fixed bottom-3 right-1 md:hidden">
+        <div className="w-12 h-12 bg-[#3563E9] rounded-full flex justify-center items-center shadow-sm text-white text-lg mx-15 hover:bg-[#3559e9] hover:transition-colors duration-300 hover:cursor-pointer fixed bottom-3 right-1 md:hidden z-10">
           <FaChevronDown />
         </div>
 

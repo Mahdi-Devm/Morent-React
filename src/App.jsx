@@ -1,13 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Layout from "./Layout/Layout";
+import Header from "./Layout/Header/Header";
+import Footer from "./Layout/Footer/Footer";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />} />
-      </Routes>
-    </BrowserRouter>
+    <div className="flex flex-col ">
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
   );
 }
 
