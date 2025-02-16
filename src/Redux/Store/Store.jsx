@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import hearthSlice from "../Redux";
+import addcartSlice from "../Redux";
 
 const store = configureStore({
   reducer: {
-    hearth: hearthSlice.reducer,
+    addcart: addcartSlice.reducer,
   },
 });
 

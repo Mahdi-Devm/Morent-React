@@ -2,26 +2,28 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   cart: [],
+  carthearth: [],
 };
 
-const hearthSlice = createSlice({
-  name: "hearth",
+const addcartSlice = createSlice({
+  name: "addcart",
   initialState,
   reducers: {
     increment: (state, action) => {
       const existingItem = state.cart.find(
         (item) => item.id === action.payload.id
       );
-
       if (existingItem) {
         existingItem.quantity += 1;
       } else {
         state.cart.push({ ...action.payload, quantity: 1 });
       }
     },
+    incrementhearth: (state, action) => {
+      state.carthearth.push({ ...action.payload });
+    },
     removeItem: (state, action) => {
       const item = state.cart.find((item) => item.id === action.payload);
-
       if (item) {
         if (item.quantity > 1) {
           item.quantity -= 1;
@@ -33,5 +35,6 @@ const hearthSlice = createSlice({
   },
 });
 
-export const { increment, removeItem } = hearthSlice.actions;
-export default hearthSlice;
+export const { increment, removeItem, incrementhearth, removeFromHearth } =
+  addcartSlice.actions;
+export default addcartSlice;

@@ -2,7 +2,7 @@ import Logo from "../Header/Logo";
 
 function Footer() {
   return (
-    <div className=" text-black py-5 border-1 border-stone-300 mt-5">
+    <div className=" text-black py-5 border-1 border-stone-300 mt-5 ">
       <div className="container mx-auto ">
         <div className="flex flex-wrap justify-between mb-8">
           <div className="w-full md:w-1/3 mb-6 md:mb-0">

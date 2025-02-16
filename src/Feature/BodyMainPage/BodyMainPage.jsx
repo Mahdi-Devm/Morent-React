@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
 import { FaHeart, FaGasPump, FaCar, FaDollarSign } from "react-icons/fa";
+
+import { useSearch } from "../../Context/ContextApi";
+import { useDispatch } from "react-redux";
+import { increment, incrementhearth } from "../../Redux/Redux";
 import Image1 from "./car.png";
 import Image2 from "./Car1.png";
 import Image3 from "./Car2.png";
@@ -12,10 +16,6 @@ import Image9 from "./Car8.png";
 import Image10 from "./Car9.png";
 import Image11 from "./Car10.png";
 import Image12 from "./Car11.png";
-import { useSearch } from "../../Context/ContextApi";
-import { useDispatch } from "react-redux";
-import { increment } from "../../Redux/Redux";
-
 function BodyMainPage() {
   const [cars, setCars] = useState([]);
   const [hearths, setHearths] = useState(false);
@@ -47,12 +47,17 @@ function BodyMainPage() {
     getCars();
   }, []);
 
-  function handelishearth(Cartid) {
+  function handelishearth(Cartid, image) {
     setHearths((prevState) => ({
       ...prevState,
       [Cartid]: !prevState[Cartid],
     }));
+
+    console.log(image);
+
+    dispatch(incrementhearth(image));
   }
+
   const filteredCars = cars.filter((car) =>
     car.brand.toLowerCase().includes(search.toLowerCase())
   );
@@ -83,7 +88,9 @@ function BodyMainPage() {
                     {car.brand}
                   </h3>
                   <FaHeart
-                    onClick={() => handelishearth(car.id)}
+                    onClick={() =>
+                      handelishearth(car.id, images[`Image${(index % 12) + 1}`])
+                    }
                     className={`text-2xl cursor-pointer ${
                       hearths[car.id] ? "text-red-500" : "text-gray-300"
                     } hover:text-red-500 transition-colors duration-300`}

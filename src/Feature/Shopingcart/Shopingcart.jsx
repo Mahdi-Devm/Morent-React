@@ -4,7 +4,7 @@ import { increment, removeItem } from "../../Redux/Redux";
 
 function Shopingcart() {
   const dispatch = useDispatch();
-  const cart = useSelector((state) => state.hearth.cart);
+  const cart = useSelector((state) => state.addcart.cart);
 
   const totalPrice = cart.reduce(
     (total, item) => total + item.price * item.quantity,
