@@ -1,1 +1,18 @@
 @import "tailwindcss";
+.custom-toast {
+  @apply bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold rounded-lg shadow-lg p-6 w-full sm:w-[90%] md:w-[60%] lg:w-[50%] mx-auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast-body {
+  @apply text-lg text-center;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.toast-progress {
+  @apply bg-yellow-300;
+}

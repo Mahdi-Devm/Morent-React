@@ -10,7 +10,7 @@ function Profile() {
       </div>
       <div className="flex items-center space-x-2 border-stone-200 rounded-full p-2 w-10 border-1 justify-center hover:bg-gray-200 hover:text-gray-700">
         <FaShoppingCart
-          onClick={() => nav("/shopingcarts")}
+          onClick={() => nav("/shopingcart")}
           className="text-gray-600"
         />
       </div>

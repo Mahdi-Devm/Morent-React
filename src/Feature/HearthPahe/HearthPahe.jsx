@@ -1,5 +1,5 @@
 function HearthPahe() {
-  return <div>HearthPahe</div>;
+  return <div>Shopingcart</div>;
 }
 
 export default HearthPahe;
