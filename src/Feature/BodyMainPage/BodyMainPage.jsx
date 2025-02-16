@@ -16,12 +16,13 @@ import Image9 from "./Car8.png";
 import Image10 from "./Car9.png";
 import Image11 from "./Car10.png";
 import Image12 from "./Car11.png";
+import LoadingPage from "../LoadingPage/LoadingPage";
 function BodyMainPage() {
   const [cars, setCars] = useState([]);
   const [hearths, setHearths] = useState(false);
   const { search } = useSearch();
   const dispatch = useDispatch();
-
+  const [loading, setLoading] = useState(true);
   const images = {
     Image1,
     Image2,
@@ -41,6 +42,7 @@ function BodyMainPage() {
     const response = await fetch("http://localhost:3000/cars");
     const data = await response.json();
     setCars(data);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -74,6 +76,10 @@ function BodyMainPage() {
     dispatch(increment(newItem));
     console.log(id, name, fuel, seats, image, price);
   }
+  if (loading) {
+    return <LoadingPage />;
+  }
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
       {filteredCars.length === 0
