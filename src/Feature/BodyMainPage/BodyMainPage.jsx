@@ -90,11 +90,13 @@ function BodyMainPage() {
       {displayCars.map((car, index) => (
         <div
           key={car.id}
-          className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-[1.02] h-[330px] w-[300px] flex flex-col border border-gray-100 hover:border-[#3563E9]"
+          className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 ease-in-out transform hover:scale-[1.02] h-[330px] sm:h-[250px] md:h-[300px] w-full sm:w-[90%] md:w-[80%] lg:w-[100%] flex flex-col border border-gray-100 hover:border-[#3563E9]"
         >
           <div className="relative flex-1 p-4">
             <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-bold text-gray-800">{car.brand}</h3>
+              <h3 className="text-xl sm:text-lg font-bold text-gray-800">
+                {car.brand}
+              </h3>
               <FaHeart
                 onClick={() =>
                   handelishearth(

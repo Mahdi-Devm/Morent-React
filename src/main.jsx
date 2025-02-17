@@ -17,7 +17,7 @@ createRoot(document.getElementById("root")).render(
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<App />}>
-              <Route path="Layout" element={<Layout />} />
+              <Route index element={<Layout />} />
               <Route path="hearth" element={<HearthPahe />} />
               <Route path="shopingcart" element={<Shopingcart />} />
               <Route path="/product/:id" element={<ProductDetailPage />} />
