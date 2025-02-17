@@ -15,8 +15,8 @@ createRoot(document.getElementById("root")).render(
       <ContextApi>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<App />}>
-              <Route path="Layout" element={<Layout />} />
+            <Route path="/Layout" element={<App />}>
+              <Route index element={<Layout />} />
               <Route path="hearth" element={<HearthPahe />} />
               <Route path="shopingcart" element={<Shopingcart />} />
             </Route>

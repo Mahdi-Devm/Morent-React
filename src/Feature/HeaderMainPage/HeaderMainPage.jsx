@@ -1,16 +1,29 @@
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronUp } from "react-icons/fa";
 import Image1 from "../image/Ads1.png";
 import Image2 from "../image/Ads2.png";
 import Dropdown from "./Dropdown";
+import { useRef } from "react";
 
 function HeaderMainPage() {
   const locations = ["New York", "Los Angeles", "San Francisco"];
   const dates = ["March 1, 2025", "March 5, 2025", "March 10, 2025"];
   const times = ["10:00 AM", "2:00 PM", "5:00 PM"];
 
+  const bottomRef = useRef(null);
+
+  const scrollToBottom = () => {
+    if (bottomRef.current) {
+      bottomRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "end",
+        inline: "nearest",
+      });
+    }
+  };
+
   return (
     <>
-      <div className="flex flex-col md:flex-row justify-center sm:gap-8  mt-5">
+      <div className="flex flex-col md:flex-row justify-center sm:gap-8 mt-5">
         <div className="w-full sm:w-full md:w-1/2 mb-5 md:mb-0 flex justify-center p-2">
           <img
             src={Image1}
@@ -58,12 +71,12 @@ function HeaderMainPage() {
             </div>
           </div>
         </div>
-        <div className="w-12 h-12  bg-[#3563E9] rounded-full flex justify-center items-center shadow-sm text-white text-lg mx-15 hover:bg-[#3559e9] hover:transition-colors duration-300 hover:cursor-pointer fixed bottom-3 right-1  z-10">
-          <FaChevronDown />
-        </div>
 
-        <div className="w-12 h-12 bg-[#3563E9] rounded-full flex justify-center items-center shadow-sm text-white text-lg mx-15 hover:bg-[#3559e9] hover:transition-colors duration-300 hover:cursor-pointer fixed bottom-3 right-1 md:hidden z-10">
-          <FaChevronDown />
+        <div
+          className="w-12 h-12 bg-[#3563E9] rounded-full flex justify-center items-center shadow-sm text-white text-lg mx-15 hover:bg-[#3559e9] hover:transition-colors duration-300 hover:cursor-pointer fixed bottom-3 right-1 z-10"
+          onClick={scrollToBottom}
+        >
+          <FaChevronUp />
         </div>
 
         <div className="w-full md:w-150 bg-white px-10 rounded-[10px] px-5">
@@ -88,6 +101,8 @@ function HeaderMainPage() {
           </div>
         </div>
       </div>
+
+      <div ref={bottomRef} className="pt-10"></div>
     </>
   );
 }
