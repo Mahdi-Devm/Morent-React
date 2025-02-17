@@ -16,6 +16,7 @@ import Image9 from "./Car8.png";
 import Image10 from "./Car9.png";
 import Image11 from "./Car10.png";
 import Image12 from "./Car11.png";
+import { useNavigate } from "react-router-dom";
 
 const cars = [
   { id: 1, brand: "Toyota", fuel: 50, seats: 5, price: 30000 },
@@ -52,15 +53,17 @@ function BodyMainPage() {
   const { search } = useSearch();
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
-  function handelishearth(Cartid, image) {
+  function handelishearth(Cartid, fuel, image) {
     setHearths((prevState) => ({
       ...prevState,
       [Cartid]: !prevState[Cartid],
     }));
 
-    console.log(image);
-    dispatch(incrementhearth(image));
+    const newItem = { Cartid, fuel, image };
+
+    dispatch(incrementhearth(newItem));
   }
 
   const filteredCars = cars.filter((car) =>
@@ -70,7 +73,6 @@ function BodyMainPage() {
   function handeladdtocarts(id, name, fuel, seats, image, price) {
     const newItem = { id, name, fuel, seats, image, price };
     dispatch(increment(newItem));
-    console.log(id, name, fuel, seats, image, price);
   }
 
   useEffect(() => {
@@ -95,7 +97,11 @@ function BodyMainPage() {
               <h3 className="text-xl font-bold text-gray-800">{car.brand}</h3>
               <FaHeart
                 onClick={() =>
-                  handelishearth(car.id, images[`Image${(index % 12) + 1}`])
+                  handelishearth(
+                    car.id,
+                    car.fuel,
+                    images[`Image${(index % 12) + 1}`]
+                  )
                 }
                 className={`text-2xl cursor-pointer ${
                   hearths[car.id] ? "text-red-500" : "text-gray-300"
@@ -103,6 +109,7 @@ function BodyMainPage() {
               />
             </div>
             <img
+              onClick={() => navigate(`/product/${car.id}`)}
               src={images[`Image${(index % 12) + 1}`]}
               alt={car.brand}
               className="w-full h-32 object-contain rounded-lg"

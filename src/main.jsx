@@ -9,16 +9,18 @@ import App from "./App";
 import ContextApi from "./Context/ContextApi";
 import { Provider } from "react-redux";
 import store from "./Redux/Store/Store";
+import ProductDetailPage from "./Feature/ProductDetailPage/ProductDetailPage";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
       <ContextApi>
         <BrowserRouter>
           <Routes>
-            <Route path="/Layout" element={<App />}>
-              <Route index element={<Layout />} />
+            <Route path="/" element={<App />}>
+              <Route path="Layout" element={<Layout />} />
               <Route path="hearth" element={<HearthPahe />} />
               <Route path="shopingcart" element={<Shopingcart />} />
+              <Route path="/product/:id" element={<ProductDetailPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

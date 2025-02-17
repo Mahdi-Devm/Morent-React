@@ -32,9 +32,20 @@ const addcartSlice = createSlice({
         }
       }
     },
+    removeFromCart: (state, action) => {
+      console.log(action.payload); // بررسی مقدار payload
+      state.carthearth = state.carthearth.filter(
+        (item) => item.Cartid !== action.payload
+      );
+    },
   },
 });
 
-export const { increment, removeItem, incrementhearth, removeFromHearth } =
-  addcartSlice.actions;
+export const {
+  increment,
+  removeItem,
+  incrementhearth,
+  removeFromHearth,
+  removeFromCart,
+} = addcartSlice.actions;
 export default addcartSlice;
