@@ -4,7 +4,7 @@ function Logo() {
   const nav = useNavigate();
   return (
     <div
-      onClick={() => nav("/Layout")}
+      onClick={() => nav("/")}
       className="font-semibold text-[22px] text-blue-600 sm:text-4xl"
     >
       MORENT

@@ -13,6 +13,8 @@ import Image11 from "./Car10.png";
 import Image12 from "./Car11.png";
 import { FaRegStar, FaStar } from "react-icons/fa";
 import { cars, reviews } from "./DataFake";
+import { increment } from "../../Redux/Redux";
+import { useDispatch } from "react-redux";
 
 const images = {
   Image1,
@@ -32,7 +34,11 @@ const images = {
 function ProductDetailPage() {
   const { id } = useParams();
   const car = cars.find((car) => car.id === parseInt(id));
-
+  const dispatch = useDispatch();
+  function handeladdtocarts(id, name, fuel, seats, image, price) {
+    const newItem = { id, name, fuel, seats, image, price };
+    dispatch(increment(newItem));
+  }
   if (!car) {
     return <div>Product not found!</div>;
   }
@@ -86,7 +92,19 @@ function ProductDetailPage() {
                 </span>
                 <span className="ml-2 text-gray-500">/ day</span>
               </div>
-              <button className="mt-6 bg-[#2A4FB5] text-white py-3 px-6 rounded-lg hover:bg-[#1A3D8B] transition duration-200 transform hover:scale-105">
+              <button
+                onClick={() =>
+                  handeladdtocarts(
+                    car.id,
+                    car.brand,
+                    car.fuel,
+                    car.seats,
+                    images[`Image${car.id}`],
+                    car.price
+                  )
+                }
+                className="mt-6 bg-[#2A4FB5] text-white py-3 px-6 rounded-lg hover:bg-[#1A3D8B] transition duration-200 transform hover:scale-105"
+              >
                 Add to Cart
               </button>
             </div>
