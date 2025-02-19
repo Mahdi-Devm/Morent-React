@@ -1,8 +1,16 @@
-# React + Vite
+Morent - Modern E-Commerce Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Morent is a sleek and modern e-commerce platform built with React and Vite, designed for an intuitive and seamless shopping experience. The project leverages Redux for efficient state management and provides a high-performance interface optimized for speed and usability.
+🚀 Features
 
-Currently, two official plugins are available:
+    Fast & Responsive UI – Optimized for all devices
+    Advanced Product Filtering – Search and categorize items with ease
+    Shopping Cart & Wishlist – Manage your favorite products effortlessly
+    Smooth User Experience – Powered by modern frontend technologies
+    Optimized Performance – Built with Vite for fast loading speeds
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🌐 Live Demo
+
+👉 View Morent
+
+This README provides a professional introduction while keeping it clean and informative. Let me know if you need any adjustments! 🚀
