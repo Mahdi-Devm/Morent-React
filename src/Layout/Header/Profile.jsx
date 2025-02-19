@@ -11,15 +11,18 @@ function Profile() {
 
   return (
     <div className="flex gap-1">
-      <div className="relative flex items-center space-x-2 border-stone-200 rounded-full p-2 w-10 border-1 justify-center hover:bg-gray-200 hover:text-gray-700 hover:cursor-pointer">
-        <FaHeart onClick={() => nav("/hearth")} className="text-gray-600" />
+      <div
+        onClick={() => nav("/hearth")}
+        className="relative flex items-center space-x-2 border-stone-200 rounded-full p-2 w-10 border-1 justify-center hover:bg-gray-200 hover:text-gray-700 hover:cursor-pointer"
+      >
+        <FaHeart className="text-gray-600" />
       </div>
 
-      <div className="relative flex items-center space-x-2 border-stone-200 rounded-full p-2 w-10 border-1 justify-center hover:bg-gray-200 hover:text-gray-700 hover:cursor-pointer">
-        <FaShoppingCart
-          onClick={() => nav("/shopingcart")}
-          className="text-gray-600"
-        />
+      <div
+        onClick={() => nav("/shopingcart")}
+        className="relative flex items-center space-x-2 border-stone-200 rounded-full p-2 w-10 border-1 justify-center hover:bg-gray-200 hover:text-gray-700 hover:cursor-pointer"
+      >
+        <FaShoppingCart className="text-gray-600" />
         {conts > 0 && (
           <span className="absolute top-0 right-0 bg-[#1D74D2] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
             {conts}

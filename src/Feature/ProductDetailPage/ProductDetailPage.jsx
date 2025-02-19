@@ -46,9 +46,9 @@ function ProductDetailPage() {
   return (
     <>
       <div className="w-full flex flex-col justify-center mx-auto">
-        <div className="container mx-auto px-4 py-8 mt-18 flex flex-col">
-          <div className="flex flex-col lg:flex-row gap-6">
-            <div className="flex flex-col gap-4 lg:w-1/2">
+        <div className="container mx-auto px-4 py-8 mt-18 flex flex-col w-300">
+          <div className="flex flex-col lg:flex-row gap-6 ">
+            <div className="flex flex-col gap-4 lg:w-1/2 bg-white p-2 rounded-2xl">
               <img
                 src={images[`Image${car.id}`]}
                 alt={car.brand}
@@ -67,7 +67,7 @@ function ProductDetailPage() {
               </div>
             </div>
 
-            <div className="lg:w-1/2 flex flex-col gap-6">
+            <div className="lg:w-1/2 flex flex-col gap-6 bg-white p-2 rounded-2xl">
               <h1 className="text-4xl font-semibold text-[#2A4FB5]">
                 {car.brand}
               </h1>
@@ -103,7 +103,7 @@ function ProductDetailPage() {
                     car.price
                   )
                 }
-                className="mt-6 bg-[#2A4FB5] text-white py-3 px-6 rounded-lg hover:bg-[#1A3D8B] transition duration-200 transform hover:scale-105"
+                className="mt-6 bg-[#2A4FB5] text-white py-3 px-6 rounded-lg hover:bg-[#1A3D8B] transition duration-200 transform hover:scale-101 hover:cursor-pointer"
               >
                 Add to Cart
               </button>
@@ -111,7 +111,7 @@ function ProductDetailPage() {
           </div>
         </div>
 
-        <div className="mt-10 w-310 mx-auto">
+        <div className="mt-10 w-310 mx-auto bg-white p-2 rounded-2xl">
           <h2 className="text-3xl font-semibold text-[#2A4FB5] mb-6">
             Customer Reviews
           </h2>

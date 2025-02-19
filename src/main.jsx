@@ -1,4 +1,4 @@
-import { StrictMode, Suspense } from "react";
+import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -10,25 +10,30 @@ import ContextApi from "./Context/ContextApi";
 import { Provider } from "react-redux";
 import store from "./Redux/Store/Store";
 import ProductDetailPage from "./Feature/ProductDetailPage/ProductDetailPage";
-import LoadingPage from "./Feature/LoadingPage/LoadingPage";
+import Login from "./Feature/Login/Login";
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
+function MainApp() {
+  return (
     <Provider store={store}>
       <ContextApi>
         <BrowserRouter>
-          <Suspense fallback={<LoadingPage />}>
-            <Routes>
-              <Route path="/" element={<App />}>
-                <Route index element={<Layout />} />
-                <Route path="hearth" element={<HearthPahe />} />
-                <Route path="shopingcart" element={<Shopingcart />} />
-                <Route path="/product/:id" element={<ProductDetailPage />} />
-              </Route>
-            </Routes>
-          </Suspense>
+          <Routes>
+            <Route path="/" element={<App />}>
+              <Route index element={<Layout />} />
+              <Route path="hearth" element={<HearthPahe />} />
+              <Route path="shopingcart" element={<Shopingcart />} />
+              <Route path="/product/:id" element={<ProductDetailPage />} />
+            </Route>
+            <Route path="/login" element={<Login />} />
+          </Routes>
         </BrowserRouter>
       </ContextApi>
     </Provider>
+  );
+}
+
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <MainApp />
   </StrictMode>
 );

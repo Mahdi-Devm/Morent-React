@@ -1,0 +1,66 @@
+:root {
+  --blur-intensity: 20px;
+  --opacity-intensity: 0.7;
+}
+
+.fixed {
+  background-image: url("https://example.com/cityscape.jpg");
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(var(--blur-intensity));
+  -webkit-backdrop-filter: blur(var(--blur-intensity));
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 1.5s linear infinite;
+}
+
+.text-shadow-lg {
+  text-shadow: 0 10px 15px rgba(0, 0, 0, 0.5), 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.transition-transform {
+  transition: transform 0.3s ease-in-out;
+}
+
+.bg-cityscape {
+  background-image: url("https://example.com/cityscape.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.opacity-70 {
+  opacity: var(--opacity-intensity);
+}
+
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
