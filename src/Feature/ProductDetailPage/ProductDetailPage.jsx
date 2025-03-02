@@ -46,72 +46,70 @@ function ProductDetailPage() {
   return (
     <>
       <div className="w-full flex flex-col justify-center mx-auto">
-        <div className="container mx-auto px-4 py-8 mt-18 flex flex-col w-300">
-          <div className="flex flex-col lg:flex-row gap-6 ">
-            <div className="flex flex-col gap-4 lg:w-1/2 bg-white p-2 rounded-2xl">
-              <img
-                src={images[`Image${car.id}`]}
-                alt={car.brand}
-                className="w-full h-auto rounded-lg shadow-md object-cover"
-              />
-              <div className="grid grid-cols-3 gap-2 mt-4">
-                {[...Array(3)].map((_, index) => (
-                  <div key={index} className="w-full">
-                    <img
-                      src={images[`Image${car.id}`]}
-                      alt={car.brand}
-                      className="w-full h-auto rounded-lg border-2 border-gray-300 transition-transform transform hover:scale-105 object-cover"
-                    />
-                  </div>
-                ))}
-              </div>
+        <div className="container mx-auto px-4 py-8 mt-18 flex flex-col lg:flex-row gap-6">
+          <div className="flex flex-col gap-4 lg:w-1/2 bg-white p-2 rounded-2xl">
+            <img
+              src={images[`Image${car.id}`]}
+              alt={car.brand}
+              className="w-full h-auto rounded-lg shadow-md object-cover"
+            />
+            <div className="grid grid-cols-3 gap-2 mt-4">
+              {[...Array(3)].map((_, index) => (
+                <div key={index} className="w-full">
+                  <img
+                    src={images[`Image${car.id}`]}
+                    alt={car.brand}
+                    className="w-full h-auto rounded-lg border-2 border-gray-300 transition-transform transform hover:scale-105 object-cover"
+                  />
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="lg:w-1/2 flex flex-col gap-6 bg-white p-2 rounded-2xl">
-              <h1 className="text-4xl font-semibold text-[#2A4FB5]">
-                {car.brand}
-              </h1>
-              <p className="text-lg text-gray-600">{car.description}</p>
-              <div className="space-y-2 mt-4 text-lg">
-                <div>
-                  <strong>Gasoline:</strong> {car.gasoline}
-                </div>
-                <div>
-                  <strong>Steering:</strong> {car.steering}
-                </div>
-                <div>
-                  <strong>Capacity:</strong> {car.capacity}
-                </div>
-                <div>
-                  <strong>Type:</strong> {car.type}
-                </div>
+          <div className="lg:w-1/2 flex flex-col gap-6 bg-white p-2 rounded-2xl">
+            <h1 className="text-4xl font-semibold text-[#2A4FB5]">
+              {car.brand}
+            </h1>
+            <p className="text-lg text-gray-600">{car.description}</p>
+            <div className="space-y-2 mt-4 text-lg">
+              <div>
+                <strong>Gasoline:</strong> {car.gasoline}
               </div>
-              <div className="flex items-center mt-6">
-                <span className="text-2xl font-bold text-[#2A4FB5]">
-                  {car.price}
-                </span>
-                <span className="ml-2 text-gray-500">/ day</span>
+              <div>
+                <strong>Steering:</strong> {car.steering}
               </div>
-              <button
-                onClick={() =>
-                  handeladdtocarts(
-                    car.id,
-                    car.brand,
-                    car.fuel,
-                    car.seats,
-                    images[`Image${car.id}`],
-                    car.price
-                  )
-                }
-                className="mt-6 bg-[#2A4FB5] text-white py-3 px-6 rounded-lg hover:bg-[#1A3D8B] transition duration-200 transform hover:scale-101 hover:cursor-pointer"
-              >
-                Add to Cart
-              </button>
+              <div>
+                <strong>Capacity:</strong> {car.capacity}
+              </div>
+              <div>
+                <strong>Type:</strong> {car.type}
+              </div>
             </div>
+            <div className="flex items-center mt-6">
+              <span className="text-2xl font-bold text-[#2A4FB5]">
+                {car.price}
+              </span>
+              <span className="ml-2 text-gray-500">/ day</span>
+            </div>
+            <button
+              onClick={() =>
+                handeladdtocarts(
+                  car.id,
+                  car.brand,
+                  car.fuel,
+                  car.seats,
+                  images[`Image${car.id}`],
+                  car.price
+                )
+              }
+              className="mt-6 bg-[#2A4FB5] text-white py-3 px-6 rounded-lg hover:bg-[#1A3D8B] transition duration-200 transform hover:scale-101 hover:cursor-pointer"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
 
-        <div className="mt-10 w-310 mx-auto bg-white p-2 rounded-2xl">
+        <div className="mt-10 w-full lg:w-3/4 mx-auto bg-white p-2 rounded-2xl">
           <h2 className="text-3xl font-semibold text-[#2A4FB5] mb-6">
             Customer Reviews
           </h2>
